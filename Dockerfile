@@ -17,3 +17,4 @@ RUN ./install_git_crypt.sh && rm ./install_git_crypt.sh
 
 FROM resource
 LABEL MAINTAINER=telia-oss
+
