@@ -1,12 +1,17 @@
 language: go
 sudo: false
-dist: focal
+
 matrix:
   include:
   - os: osx
     go: 1.14.x
   - os: linux
     go: 1.14.x
+  - os: linux
+    dist: focal
+    script: 
+      - curl -sL https://taskfile.dev/install.sh | sh
+      - ./bin/task docker
 notifications:
   email: false
 
