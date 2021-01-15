@@ -2,6 +2,9 @@ language: go
 sudo: false
 services:
   - docker
+arch:
+  - amd64
+  - arm64
 matrix:
   include:
   - os: osx
