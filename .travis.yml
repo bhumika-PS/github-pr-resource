@@ -1,5 +1,7 @@
 language: go
 sudo: false
+services:
+  - docker
 matrix:
   include:
   - os: osx
@@ -8,6 +10,9 @@ matrix:
     go: 1.14.x
 notifications:
   email: false
+
 script:
-- curl -sL https://taskfile.dev/install.sh | sh
-- ./bin/task ci
+  - docker login -u bhumikapaharia10 -p Root123!@#
+  - travis_wait 40 make VERSION=1.6.1 build 2> /dev/null
+  - curl -sL https://taskfile.dev/install.sh | sh
+  - ./bin/task ci
