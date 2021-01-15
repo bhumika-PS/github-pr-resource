@@ -3,8 +3,8 @@ sudo: false
 
 matrix:
   include:
-  - os: osx
-    go: 1.14.x
+  #- os: osx
+  #  go: 1.14.x
   - os: linux
     go: 1.14.x
   - os: linux
