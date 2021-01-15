@@ -1,10 +1,8 @@
 language: go
 sudo: false
+dist: focal
 services:
   - docker
-#arch:
-  #- amd64
-  #- arm64
 matrix:
   include:
   - os: osx
@@ -15,7 +13,5 @@ notifications:
   email: false
 
 script:
-  - docker login -u bhumikapaharia10 -p Root123!@#
-  - travis_wait 40 make VERSION=1.6.1 build 2> /dev/null
   - curl -sL https://taskfile.dev/install.sh | sh
   - ./bin/task ci
