@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export DOCKER_CLI_EXPERIMENTAL=enabled
+
 docker manifest create \
   $DOCKER_REPO:latest \
   $DOCKER_REPO:amd64 \
