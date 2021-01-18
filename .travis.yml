@@ -11,9 +11,9 @@ matrix:
     dist: focal
     go: 1.14.x
     before_script:
-      - echo ${TRAVIS_CPU_OS}
-      - echo ${CPU_ARCH}
-      - echo OS
+      - echo $TRAVIS_CPU_OS
+      - echo $CPU_ARCH
+      - echo $OS
       #- if [ "${TRAVIS_CPU_OS}" == "linux" ]; then
       - if [ "${CPU_ARCH}" == "amd64" ]; then
           mkdir -vp ~/.docker/cli-plugins/;
