@@ -11,11 +11,8 @@ matrix:
     dist: focal
     go: 1.14.x
     before_script:
-      - echo $TRAVIS_CPU_OS
-      - echo $CPU_ARCH
-      - echo $OS
-      #- if [ "${TRAVIS_CPU_OS}" == "linux" ]; then
-      - if [ "${CPU_ARCH}" == "amd64" ]; then
+      - if [ "${TRAVIS_CPU_ARCH}" == "amd64" ]; then
+      #- if [ "${CPU_ARCH}" == "amd64" ]; then
           mkdir -vp ~/.docker/cli-plugins/;
           curl --silent -L "https://github.com/docker/buildx/releases/download/v0.4.2/buildx-v0.4.2.linux-amd64" > ~/.docker/cli-plugins/docker-buildx;
           chmod a+x ~/.docker/cli-plugins/docker-buildx;
