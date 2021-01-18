@@ -9,6 +9,8 @@ matrix:
   #  go: 1.14.x
   - os: linux
     dist: focal
+    services:
+      - docker
     go: 1.14.x
     before_script:
       #- if [ "${CPU_ARCH}" == "amd64" ]; then
