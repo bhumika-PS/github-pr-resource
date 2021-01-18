@@ -21,7 +21,9 @@ matrix:
         fi 
     script: 
       - curl -sL https://taskfile.dev/install.sh | sh
-      - ./bin/task docker
+      - travis_wait 40 ./bin/task docker 2> /dev/null
+      #- ./bin/task docker 
+      
 notifications:
   email: false
 
