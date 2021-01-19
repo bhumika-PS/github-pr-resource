@@ -1,6 +1,7 @@
 language: go
 sudo: false
-
+services:
+  - docker
 matrix:
   include:
   #- os: osx
@@ -10,8 +11,8 @@ matrix:
   
   - os: linux
     dist: focal
-    services:
-      - docker
+    #services:
+      #- docker
     arch: 
       - arm64
     go: 1.14.x
