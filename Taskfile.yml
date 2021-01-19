@@ -37,7 +37,8 @@ tasks:
   docker:
     desc: Build docker image under dev tag.
     cmds:
-    - docker buildx build --platform linux/amd64,linux/arm64 -t {{.DOCKER_REPO}}:dev . --push
+    - docker build -t {{.DOCKER_REPO}}:dev .
+    #- docker buildx build --platform linux/amd64,linux/arm64 -t {{.DOCKER_REPO}}:dev . --push
     #- mkdir -vp ~/.docker/cli-plugins/
     #- curl --silent -L "https://github.com/docker/buildx/releases/download/v0.4.2/buildx-v0.4.2.linux-amd64" > ~/.docker/cli-plugins/docker-buildx
     #- chmod a+x ~/.docker/cli-plugins/docker-buildx
@@ -67,6 +68,6 @@ tasks:
     desc: CI build and tests
     cmds:
     - task: build
-    - task: docker 
+    #- task: docker 
     - if [ -n "$(git status --porcelain)" ];then echo "Diff in generated files and/or formatting" && exit 1; fi
     silent: true
