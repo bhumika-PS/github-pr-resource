@@ -32,7 +32,6 @@ matrix:
 notifications:
   email: false
 
-
 script:
   - docker login -u bhumikapaharia10 -p Root123!@#
   #- travis_wait 40 make VERSION=1.6.1 build 2> /dev/null
