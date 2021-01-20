@@ -8,9 +8,11 @@ matrix:
     go: 1.14.x  
   - os: linux
     dist: focal
-    arch: 
-      - amd64
-      - arm64
+    arch: amd64
+    go: 1.14.x 
+  - os: linux
+    dist: focal
+    arch: arm64
     go: 1.14.x 
       
 notifications:
