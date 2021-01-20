@@ -4,38 +4,19 @@ services:
   - docker
 matrix:
   include:
-  #- os: osx
-  #  go: 1.14.x
-  #- os: linux
-  #  go: 1.14.x
-  
+  - os: osx
+    go: 1.14.x  
   - os: linux
     dist: focal
-    #services:
-      #- docker
     arch: 
+      - amd64
       - arm64
-    go: 1.14.x
-    before_script:
-      #- if [ "${CPU_ARCH}" == "amd64" ]; then
-      - if [ "${TRAVIS_CPU_ARCH}" == "amd64" ]; then
-          mkdir -vp ~/.docker/cli-plugins/;
-          curl --silent -L "https://github.com/docker/buildx/releases/download/v0.4.2/buildx-v0.4.2.linux-amd64" > ~/.docker/cli-plugins/docker-buildx;
-          chmod a+x ~/.docker/cli-plugins/docker-buildx;
-          docker run --rm --privileged docker/binfmt:66f9012c56a8316f9244ffd7622d7c21c1f6f28d;
-          docker buildx create --use --name mybuilder;
-        fi 
-    script:
-      - docker login -u bhumikapaharia10 -p Root123!@#
-      - curl -sL https://taskfile.dev/install.sh | sh
-      - travis_wait 40 ./bin/task docker 2> /dev/null
-      #- ./bin/task docker 
+    go: 1.14.x 
       
 notifications:
   email: false
 
 script:
   - docker login -u bhumikapaharia10 -p Root123!@#
-  #- travis_wait 40 make VERSION=1.6.1 build 2> /dev/null
   - curl -sL https://taskfile.dev/install.sh | sh
   - ./bin/task ci
